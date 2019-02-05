@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>DVS - Conway's Game of Life Coding Challenge Submission</title>
+
+  </head>
+  <body>
+    <div class="container" style="padding:10px;margin:10px;width:90%;">
+
+      <div class="row">
+          <div class="col-8">
+              <h3>Conway's Game of Life: </h3>   <br>
+              <button type="submit" onClick="refreshPage()">Refresh Game</button>
+              <br><br><br>
+              If a dead cell has exactly three live neighbors, it comes to life  - life is created<br><br>
+              If a live cell has less than two live neighbors, it dies    - UNDERPOPULATION<br><br>
+              If a live cell has more than three live neighbors, it dies  - OVERPOPULATION<br><br>
+              If a live cell has two or three live neighbors, it continues living - life is PRESERVED<br><br>
+          </div>
+          <div class="col-4">
+              <canvas id="theCanvas" width="400" height="400" style="border:1px solid #000000;"></canvas>
+          </div>
+      </div>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <script src="bundle.js"></script>
+
+
+    <script>
+      function refreshPage(){
+          window.location.reload();
+      }
+
+      //define the size of the grid in pixels
+      const gridHeight = 400;
+      const gridWidth = 400;
+
+      //define the 2 dimensional arrays for the grid and the swap grid
+      let currentGrid = createArray(gridWidth);     // current state of the grid
+      let newGrid = createArray(gridWidth);         // new updated state of the grid
+
+      //establish the grid
+      const c = document.getElementById("theCanvas");
+      const ctx = c.getContext("2d");      //establish the 2d context of the canvas
+      ctx.fillStyle = "#279932";         //sets the fill style of the pixel to a nice alive green color
+
+      //fill the board
+      fillSmall();
+
+      //run the game
+      tick(); //call main loop
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "dvansgameoflife",
+  "version": "1.0.0",
+  "description": "Second Code Challenge Submission for Career Now Brands",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "Doug Van Slembrouck",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.1.0",
+    "webpack-cli": "^3.2.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "webpack": "^4.29.1"
+  }
+}
